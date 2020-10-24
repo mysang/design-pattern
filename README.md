@@ -7,31 +7,31 @@
     - [Các giải pháp không hiệu quả](#các-giải-pháp-không-hiệu-quả)
     - [Sử dụng không hợp lý](#sử-dụng-không-hợp-lý)
 - [Phân loại các mẫu](#phân-loại-các-mẫu)
-    - [Creational patterns (Mẫu sáng tạo)]()
-        - [Factory Method]()
-        - [Abstract Factory]()
-        - [Builder]()
-        - [Prototype]()
-        - [Singleton]()
-    - [Structural patterns (Mẫu cấu trúc)]()
-        - [Adapter]()
-        - [Bridge]()
-        - [Composite]()
-        - [Decorator]()
-        - [Facade]()
-        - [Flyweight]()
-        - [Proxy]()
-    - [Behavioral patterns (Mẫu hành vi)]()
-        - [Chain of Responsibility]()
-        - [Command]()
-        - [Iterator]()
-        - [Mediator]()
-        - [Memento]()
-        - [Observer]()
-        - [State]()
-        - [Strategy]()
-        - [Template Method]()
-        - [Visitor]()
+    - [Creational patterns (Mẫu sáng tạo)](#creational-patterns-mẫu-sáng-tạo)
+        - [Factory Method](#factory-method)
+        - [Abstract Factory](#abstract-factory)
+        - [Builder](#builder)
+        - [Prototype](#prototype)
+        - [Singleton](#singleton)
+    - [Structural patterns (Mẫu cấu trúc)](#structural-patterns-mẫu-cấu-trúc)
+        - [Adapter](#adapter)
+        - [Bridge](#bridge)
+        - [Composite](#composite)
+        - [Decorator](#decorator)
+        - [Facade](#facade)
+        - [Flyweight](#flyweight)
+        - [Proxy](#proxy)
+    - [Behavioral patterns (Mẫu hành vi)](#behavioral-patterns-mẫu-hành-vi)
+        - [Chain of Responsibility](#chain-of-responsibility)
+        - [Command](#command)
+        - [Iterator](#iterator)
+        - [Mediator](#mediator)
+        - [Memento](#memento)
+        - [Observer](#observer)
+        - [State](#state)
+        - [Strategy](#strategy)
+        - [Template Method](#template-method)
+        - [Visitor](#visitor)
 # Design pattern là gì?
 **Design patterns** là giải pháp điển hình cho các vấn đề thường xảy ra trong thiết kế phần mềm. Chúng giống như các bản thiết kế được tạo sẵn mà bạn có thể tùy chỉnh để giải quyết vấn đề trùng lặp mã trong phần mềm của mình.
 
@@ -71,7 +71,8 @@ Ví dụ, mẫu Strategy có thể được triển khai bằng một hàm ẩn 
 Các mẫu cố gắng hệ thống hóa các phương pháp tiếp cận đã được sử dụng rộng rãi. Sự thống nhất này được nhiều người coi là một giáo điều và họ triển khai các mô hình "to the point", mà không điều chỉnh chúng cho phù hợp với bối cảnh dự án của họ.
 
 ## Sử dụng không hợp lý
-`If all you have is a hammer, everything looks like a nail. (Nếu tất cả những gì bạn có là một cái búa, mọi thứ giống như một cái đinh.)`
+`If all you have is a hammer, everything looks like a nail.`
+`(Nếu tất cả những gì bạn có là một cái búa, thì mọi thứ giống như một cái đinh.)`
 
 Đây là vấn đề ám ảnh nhiều người mới làm quen với các mẫu. Sau khi học về các mẫu, họ cố gắng áp dụng chúng ở mọi nơi, ngay cả trong những tình huống mà mã đơn giản hơn sẽ hoạt động tốt hơn.
 
