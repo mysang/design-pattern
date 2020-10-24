@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  design-pattern-python:
+    container_name: design-pattern-python
+    image: python:3.9.0
+    volumes:
+      - ./BehavioralDesignPatterns:/app/BehavioralDesignPatterns
+      - ./CreationalDesignPatterns:/app/CreationalDesignPatterns
+      - ./StructuralDesignPatterns:/app/StructuralDesignPatterns
+    working_dir: /app
+    command: sh -c "tail -f /dev/null"
+
+  design-pattern-php:
+    container_name: design-pattern-php
+    image: php:7.4-cli
+    volumes:
+      - ./BehavioralDesignPatterns:/app/BehavioralDesignPatterns
+      - ./CreationalDesignPatterns:/app/CreationalDesignPatterns
+      - ./StructuralDesignPatterns:/app/StructuralDesignPatterns
+    working_dir: /app
+    command: sh -c "tail -f /dev/null"
