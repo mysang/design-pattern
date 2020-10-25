@@ -89,73 +89,73 @@ Ngoài ra, tất cả các mẫu có thể được phân loại theo ý định
 **Creational patterns** cung cấp các cơ chế tạo đối tượng để tăng tính linh hoạt và tái sử dụng mã hiện có.
 
 ### Factory Method
-- **Factory Method** là một Creational design pattern cung cấp interface để tạo các đối tượng trong lớp cha, nhưng cho phép các lớp con thay đổi loại đối tượng sẽ được tạo. Độ khó của mẫu này là 3.
+- **Factory Method** là một Creational design pattern cung cấp interface để tạo các đối tượng trong lớp cha, nhưng cho phép các lớp con thay đổi loại đối tượng sẽ được tạo. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 3.
 
 ### Abstract Factory
-- **Abstract Factory** là một Creational design pattern cho phép bạn tạo ra các họ các đối tượng liên quan mà không cần chỉ định các lớp cụ thể của chúng. Độ khó của mẫu này là 3.
+- **Abstract Factory** là một Creational design pattern cho phép bạn tạo ra các họ các đối tượng liên quan mà không cần chỉ định các lớp cụ thể của chúng. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 3.
 
 ### Builder
-- **Builder** là một Creational design pattern cho phép bạn xây dựng các đối tượng phức tạp theo từng bước. Mẫu này cho phép bạn tạo ra các kiểu và thể hiện khác nhau của một đối tượng bằng cách sử dụng cùng một mã xây dựng. Độ khó của mẫu này là 3.
+- **Builder** là một Creational design pattern cho phép bạn xây dựng các đối tượng phức tạp theo từng bước. Mẫu này cho phép bạn tạo ra các kiểu và thể hiện khác nhau của một đối tượng bằng cách sử dụng cùng một mã xây dựng. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 3.
 
 ### Prototype
-- **Prototype** là một Creational design pattern cho phép bạn sao chép các đối tượng hiện có mà không làm cho mã của bạn phụ thuộc vào các lớp của chúng. Độ khó của mẫu này là 2.
+- **Prototype** là một Creational design pattern cho phép bạn sao chép các đối tượng hiện có mà không làm cho mã của bạn phụ thuộc vào các lớp của chúng. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 2.
 
 ### Singleton
-- **Singleton** là một Creational design pattern cho phép bạn đảm bảo rằng một lớp chỉ có một thể hiện (instance), đồng thời cung cấp một điểm truy cập toàn cục cho thể hiện này. Độ khó của mẫu này là 2.
+- **Singleton** là một Creational design pattern cho phép bạn đảm bảo rằng một lớp chỉ có một thể hiện (instance), đồng thời cung cấp một điểm truy cập toàn cục cho thể hiện này. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 2.
 
 ## Structural patterns (Mẫu cấu trúc)
 **Structural patterns** giải thích cách tập hợp các đối tượng và lớp thành các cấu trúc lớn hơn, trong khi vẫn giữ cho cấu trúc linh hoạt và hiệu quả.
 
 ### Adapter
-- **Adapter** là một Structural design pattern cho phép các đối tượng có interface không tương thích cộng tác. Độ khó của mẫu này là 3.
+- **Adapter** là một Structural design pattern cho phép các đối tượng có interface không tương thích cộng tác. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 3.
 
 ### Bridge
-- **Bridge** là một Structural design pattern cho phép bạn chia một lớp lớn hoặc một tập hợp các lớp có liên quan chặt chẽ thành hai cấu trúc phân cấp riêng biệt — trừu tượng (hierarchies—abstraction) và thực thi — cái nào (implementation—which) có thể được phát triển độc lập với nhau. Độ khó của mẫu này là 1.
+- **Bridge** là một Structural design pattern cho phép bạn chia một lớp lớn hoặc một tập hợp các lớp có liên quan chặt chẽ thành hai cấu trúc phân cấp riêng biệt — trừu tượng (hierarchies—abstraction) và thực thi — cái nào (implementation—which) có thể được phát triển độc lập với nhau. Độ phức tạp của mẫu này là 3. Mức độ phổ biến của mẫu này là 1.
 
 ### Composite
-- **Composite** là một Structural design pattern cho phép bạn soạn các đối tượng thành cấu trúc cây và sau đó làm việc với các cấu trúc này như thể chúng là các đối tượng riêng lẻ. Độ khó của mẫu này là 2.
+- **Composite** là một Structural design pattern cho phép bạn soạn các đối tượng thành cấu trúc cây và sau đó làm việc với các cấu trúc này như thể chúng là các đối tượng riêng lẻ. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 2.
 
 ### Decorator
-- **Decorator** là một Structural design pattern cho phép bạn đính kèm các hành vi mới vào các đối tượng bằng cách đặt các đối tượng này bên trong các đối tượng trình bao bọc đặc biệt có chứa các hành vi. Độ khó của mẫu này là 2.
+- **Decorator** là một Structural design pattern cho phép bạn đính kèm các hành vi mới vào các đối tượng bằng cách đặt các đối tượng này bên trong các đối tượng trình bao bọc đặc biệt có chứa các hành vi. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 2.
 
 ### Facade
-- **Facade** là một Structural design pattern cung cấp interface đơn giản hóa cho library, framework hoặc bất kỳ tập hợp lớp phức tạp nào khác. Độ khó của mẫu này là 2.
+- **Facade** là một Structural design pattern cung cấp interface đơn giản hóa cho library, framework hoặc bất kỳ tập hợp lớp phức tạp nào khác. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 2.
 
 ### Flyweight
-- **Flyweight** là một Structural design pattern cho phép bạn nhét nhiều đối tượng hơn vào dung lượng RAM có sẵn bằng cách chia sẻ các phần trạng thái chung giữa nhiều đối tượng thay vì giữ tất cả dữ liệu trong mỗi đối tượng. Độ khó của mẫu này là 0.
+- **Flyweight** là một Structural design pattern cho phép bạn nhét nhiều đối tượng hơn vào dung lượng RAM có sẵn bằng cách chia sẻ các phần trạng thái chung giữa nhiều đối tượng thay vì giữ tất cả dữ liệu trong mỗi đối tượng. Độ phức tạp của mẫu này là 3. Mức độ phổ biến của mẫu này là 0.
 
 ### Proxy
-- **Proxy** là một Structural design pattern cho phép bạn cung cấp vật thay thế hoặc trình giữ chỗ cho một đối tượng khác. Một proxy kiểm soát quyền truy cập vào đối tượng gốc, cho phép bạn thực hiện một điều gì đó trước hoặc sau khi yêu cầu được chuyển đến đối tượng gốc. Độ khó của mẫu này là 1.
+- **Proxy** là một Structural design pattern cho phép bạn cung cấp vật thay thế hoặc trình giữ chỗ cho một đối tượng khác. Một proxy kiểm soát quyền truy cập vào đối tượng gốc, cho phép bạn thực hiện một điều gì đó trước hoặc sau khi yêu cầu được chuyển đến đối tượng gốc. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 1.
 
 ## Behavioral patterns (Mẫu hành vi)
 **Behavioral patterns** quan tâm đến việc giao tiếp hiệu quả và sự phân công trách nhiệm giữa các đối tượng.
 
 ### Chain of Responsibility
-- **Chain of Responsibility** là một Behavioral design pattern cho phép bạn chuyển các yêu cầu dọc theo một chuỗi các trình xử lý. Khi nhận được yêu cầu, mỗi trình xử lý sẽ quyết định xử lý yêu cầu hoặc chuyển nó cho trình xử lý tiếp theo trong chuỗi. Độ khó của mẫu này là 1.
+- **Chain of Responsibility** là một Behavioral design pattern cho phép bạn chuyển các yêu cầu dọc theo một chuỗi các trình xử lý. Khi nhận được yêu cầu, mỗi trình xử lý sẽ quyết định xử lý yêu cầu hoặc chuyển nó cho trình xử lý tiếp theo trong chuỗi. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 1.
 
 ### Command
-- **Command** là một Behavioral design pattern biến một yêu cầu thành một đối tượng độc lập chứa tất cả thông tin về yêu cầu. Sự chuyển đổi này cho phép bạn tham số hóa các phương thức với các yêu cầu khác nhau, trì hoãn hoặc xếp hàng đợi việc thực thi một yêu cầu và hỗ trợ các hoạt động hoàn tác. Độ khó của mẫu này là 3.
+- **Command** là một Behavioral design pattern biến một yêu cầu thành một đối tượng độc lập chứa tất cả thông tin về yêu cầu. Sự chuyển đổi này cho phép bạn tham số hóa các phương thức với các yêu cầu khác nhau, trì hoãn hoặc xếp hàng đợi việc thực thi một yêu cầu và hỗ trợ các hoạt động hoàn tác. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 1.
 
 ### Iterator
-- **Iterator** là một Behavioral design pattern cho phép bạn duyệt qua các phần tử của một tập hợp mà không để lộ biểu diễn cơ bản của nó (list, stack, tree, v.v.). Độ khó của mẫu này là 3.
+- **Iterator** là một Behavioral design pattern cho phép bạn duyệt qua các phần tử của một tập hợp mà không để lộ biểu diễn cơ bản của nó (list, stack, tree, v.v.). Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 3.
 
 ### Mediator
-- **Mediator** là một Behavioral design pattern cho phép bạn giảm bớt sự phụ thuộc hỗn loạn giữa các đối tượng. Mẫu hạn chế giao tiếp trực tiếp giữa các đối tượng và buộc chúng chỉ cộng tác thông qua một đối tượng trung gian. Độ khó của mẫu này là 0.
+- **Mediator** là một Behavioral design pattern cho phép bạn giảm bớt sự phụ thuộc hỗn loạn giữa các đối tượng. Mẫu hạn chế giao tiếp trực tiếp giữa các đối tượng và buộc chúng chỉ cộng tác thông qua một đối tượng trung gian. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 0.
 
 ### Memento
-- **Memento** là một Behavioral design pattern cho phép bạn lưu và khôi phục trạng thái trước đó của một đối tượng mà không tiết lộ chi tiết về việc triển khai nó. Độ khó của mẫu này là 1.
+- **Memento** là một Behavioral design pattern cho phép bạn lưu và khôi phục trạng thái trước đó của một đối tượng mà không tiết lộ chi tiết về việc triển khai nó. Độ phức tạp của mẫu này là 3. Mức độ phổ biến của mẫu này là 1.
 
 ### Observer
-- **Observer** là một Behavioral design pattern cho phép bạn xác định cơ chế đăng ký để thông báo cho nhiều đối tượng về bất kỳ sự kiện nào xảy ra với đối tượng mà họ đang quan sát. Độ khó của mẫu này là 3.
+- **Observer** là một Behavioral design pattern cho phép bạn xác định cơ chế đăng ký để thông báo cho nhiều đối tượng về bất kỳ sự kiện nào xảy ra với đối tượng mà họ đang quan sát. Độ phức tạp của mẫu này là 2. Mức độ phổ biến của mẫu này là 3.
 
 ### State
-- **State** là một Behavioral design pattern cho phép một đối tượng thay đổi hành vi của nó khi trạng thái bên trong của nó thay đổi. Nó xuất hiện như thể đối tượng đã thay đổi lớp của nó. Độ khó của mẫu này là 2.
+- **State** là một Behavioral design pattern cho phép một đối tượng thay đổi hành vi của nó khi trạng thái bên trong của nó thay đổi. Nó xuất hiện như thể đối tượng đã thay đổi lớp của nó. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 2.
 
 ### Strategy
-- **Strategy** là một Behavioral design pattern cho phép bạn xác định một nhóm thuật toán, đặt mỗi thuật toán vào một lớp riêng biệt và làm cho các đối tượng của chúng có thể hoán đổi cho nhau. Độ khó của mẫu này là 3.
+- **Strategy** là một Behavioral design pattern cho phép bạn xác định một nhóm thuật toán, đặt mỗi thuật toán vào một lớp riêng biệt và làm cho các đối tượng của chúng có thể hoán đổi cho nhau. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 3.
 
 ### Template Method
-- **Template Method** là một Behavioral design pattern xác định khung của một thuật toán trong lớp cha nhưng cho phép các lớp con ghi đè các bước cụ thể của thuật toán mà không thay đổi cấu trúc của nó. Độ khó của mẫu này là 2.
+- **Template Method** là một Behavioral design pattern xác định khung của một thuật toán trong lớp cha nhưng cho phép các lớp con ghi đè các bước cụ thể của thuật toán mà không thay đổi cấu trúc của nó. Độ phức tạp của mẫu này là 1. Mức độ phổ biến của mẫu này là 2.
 
 ### Visitor
-- **Visitor** là một Behavioral design pattern cho phép bạn tách các thuật toán khỏi các đối tượng mà chúng hoạt động. Độ khó của mẫu này là 1.
+- **Visitor** là một Behavioral design pattern cho phép bạn tách các thuật toán khỏi các đối tượng mà chúng hoạt động. Độ phức tạp của mẫu này là 3. Mức độ phổ biến của mẫu này là 1.
