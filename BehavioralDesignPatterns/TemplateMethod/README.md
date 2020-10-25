@@ -4,6 +4,22 @@
 - Độ phức tạp của mẫu này là 1.
 - Mức độ phổ biến của mẫu này là 2.
 
+# Ví dụ thực hành
+### Chạy các câu lệnh sau để chạy chương trình (Nếu đã làm rồi thì bỏ qua):
+- `git clone git@github.com:mysang/design-pattern.git`
+- `cd design-pattern`
+- `docker-compose up -d`
+
+### Chạy chương trình ví dụ cho Python:
+- `docker exec -it design-pattern-python /bin/bash`
+- `cd BehavioralDesignPatterns/TemplateMethod/python`
+- `python main.py`
+
+### Chạy chương trình ví dụ cho PHP:
+- `docker exec -it design-pattern-php /bin/bash`
+- `cd BehavioralDesignPatterns/TemplateMethod/php`
+- `php main.php`
+
 # Vấn đề
 Hãy tưởng tượng rằng bạn đang tạo một ứng dụng khai thác dữ liệu để phân tích các tài liệu của công ty. Người dùng cung cấp các tài liệu ứng dụng ở các định dạng khác nhau (PDF, DOC, CSV) và nó cố gắng trích xuất dữ liệu có ý nghĩa từ các tài liệu này ở định dạng thống nhất.
 

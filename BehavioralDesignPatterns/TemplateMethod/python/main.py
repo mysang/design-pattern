@@ -45,6 +45,23 @@ class Facebook(SocialNetwork):
   def logOut(self):
     print("Facebook: " + self._username + " has been logged out.")
 
+# Concrete Class này triển khai API Twitter
+class Twitter(SocialNetwork):
+  def login(self, username: str, password: str):
+    print("Checking user's credentials...")
+    print("Name: " + self._username)
+    print("Password: " + '*'*len(self._password))
+    simulateNetworkLatency()
+    print("Twitter: " + self._username + " has logged in successfully.")
+    return True
+
+  def sendData(self, message: str):
+    print("Twitter: " + self._username + " has posted '" + message + "'.")
+    return True
+
+  def logOut(self):
+    print("Twitter: " + self._username + " has been logged out.")
+
 def simulateNetworkLatency():
   i = 0
   while (i < 5):
