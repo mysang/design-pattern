@@ -1,5 +1,5 @@
 # Behavioral Design Patterns
-- [ChainOfResponsibility](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/ChainOfResponsibility)
+- [Chain Of Responsibility](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/ChainOfResponsibility)
 - [Command](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/Command)
 - [Iterator](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/Iterator)
 - [Mediator](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/Mediator)
@@ -7,5 +7,5 @@
 - [Observer](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/Observer)
 - [State](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/State)
 - [Strategy](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/Strategy)
-- [TemplateMethod](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/TemplateMethod)
+- [Template Method](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/TemplateMethod)
 - [Visitor](https://github.com/mysang/design-pattern/tree/main/BehavioralDesignPatterns/Visitor)
