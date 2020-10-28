@@ -1,5 +1,5 @@
 # Observer
-Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
+**Observer** là một Behavioral design pattern cho phép bạn xác định cơ chế đăng ký để thông báo cho nhiều đối tượng về bất kỳ sự kiện nào xảy ra với đối tượng mà họ đang quan sát.
 
 - Độ phức tạp của mẫu này là 2.
 - Mức độ phổ biến của mẫu này là 3.
@@ -21,75 +21,80 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 - `php main.php`
 
 # Vấn đề
-Imagine that you have two types of objects: a `Customer` and a `Store`. The customer is very interested in a particular brand of product (say, it’s a new model of the iPhone) which should become available in the store very soon.
+Hãy tưởng tượng rằng bạn có hai loại đối tượng: `Khách hàng` và `Cửa hàng`. Khách hàng rất quan tâm đến một thương hiệu sản phẩm cụ thể (giả sử đó là một mẫu iPhone mới) sẽ sớm có mặt trong cửa hàng.
 
-The customer could visit the store every day and check product availability. But while the product is still en route, most of these trips would be pointless.
+Khách hàng có thể ghé thăm cửa hàng mỗi ngày và kiểm tra tính sẵn có của sản phẩm. Nhưng trong khi sản phẩm vẫn đang trên đường, hầu hết những chuyến đi này sẽ trở nên vô nghĩa.
 
-On the other hand, the store could send tons of emails (which might be considered spam) to all customers each time a new product becomes available. This would save some customers from endless trips to the store. At the same time, it’d upset other customers who aren’t interested in new products.
+Mặt khác, cửa hàng có thể gửi hàng tấn email (có thể được coi là thư rác) cho tất cả khách hàng mỗi khi có sản phẩm mới. Điều này sẽ giúp một số khách hàng thoát khỏi những chuyến đi bất tận đến cửa hàng. Đồng thời, điều này sẽ làm khó chịu những khách hàng khác không quan tâm đến sản phẩm mới.
 
-It looks like we’ve got a conflict. Either the customer wastes time checking product availability or the store wastes resources notifying the wrong customers.
+Có vẻ như chúng ta đã xảy ra xung đột. Khách hàng lãng phí thời gian kiểm tra sản phẩm còn hàng hoặc cửa hàng lãng phí nguồn lực để thông báo sai cho khách hàng.
 
 # Giải pháp
-The object that has some interesting state is often called subject, but since it’s also going to notify other objects about the changes to its state, we’ll call it publisher. All other objects that want to track changes to the publisher’s state are called subscribers.
+Đối tượng có một số trạng thái thú vị thường được gọi là chủ thể, nhưng vì nó cũng sẽ thông báo cho các đối tượng khác về những thay đổi đối với trạng thái của nó, chúng tôi sẽ gọi nó là nhà xuất bản. Tất cả các đối tượng khác muốn theo dõi các thay đổi đối với trạng thái của nhà xuất bản được gọi là người đăng ký.
 
-The Observer pattern suggests that you add a subscription mechanism to the publisher class so individual objects can subscribe to or unsubscribe from a stream of events coming from that publisher. Fear not! Everything isn’t as complicated as it sounds. In reality, this mechanism consists of 1) an array field for storing a list of references to subscriber objects and 2) several public methods which allow adding subscribers to and removing them from that list.
+Observer pattern gợi ý rằng bạn nên thêm cơ chế đăng ký vào publisher class để các đối tượng riêng lẻ có thể đăng ký hoặc hủy đăng ký khỏi luồng sự kiện đến từ nhà xuất bản đó. Đừng sợ! Mọi thứ không phức tạp như bạn tưởng. Trên thực tế, cơ chế này bao gồm 1) trường mảng để lưu trữ danh sách các tham chiếu đến các đối tượng người đăng ký và 2) một số phương thức công khai cho phép thêm người đăng ký vào và xóa họ khỏi danh sách đó.
 
-Now, whenever an important event happens to the publisher, it goes over its subscribers and calls the specific notification method on their objects.
+Giờ đây, bất cứ khi nào một sự kiện quan trọng xảy ra với nhà xuất bản, nhà xuất bản sẽ xem xét người đăng ký của mình và gọi phương thức thông báo cụ thể trên các đối tượng của họ.
 
-Real apps might have dozens of different subscriber classes that are interested in tracking events of the same publisher class. You wouldn’t want to couple the publisher to all of those classes. Besides, you might not even know about some of them beforehand if your publisher class is supposed to be used by other people.
+Các ứng dụng thực có thể có hàng chục subscriber classe khác nhau quan tâm đến việc theo dõi các sự kiện của cùng một publisher class. Bạn sẽ không muốn ghép nhà xuất bản vào tất cả các lớp đó. Bên cạnh đó, bạn thậm chí có thể không biết trước về một số trong số chúng nếu publisher class của bạn được người khác sử dụng.
 
-That’s why it’s crucial that all subscribers implement the same interface and that the publisher communicates with them only via that interface. This interface should declare the notification method along with a set of parameters that the publisher can use to pass some contextual data along with the notification.
+Đó là lý do tại sao điều quan trọng là tất cả người đăng ký phải triển khai cùng một interface và nhà xuất bản chỉ giao tiếp với họ qua interface đó. Interface này nên khai báo phương thức thông báo cùng với một tập hợp các tham số mà nhà xuất bản có thể sử dụng để chuyển một số dữ liệu theo ngữ cảnh cùng với thông báo.
 
-If your app has several different types of publishers and you want to make your subscribers compatible with all of them, you can go even further and make all publishers follow the same interface. This interface would only need to describe a few subscription methods. The interface would allow subscribers to observe publishers’ states without coupling to their concrete classes.
+Nếu ứng dụng của bạn có nhiều loại publisher khác nhau và bạn muốn làm cho subscriber của mình tương thích với tất cả họ, bạn có thể tiến xa hơn nữa và làm cho tất cả các publisher tuân theo cùng một interface. Interface này chỉ cần mô tả một số phương pháp đăng ký. Interface sẽ cho phép subscriber quan sát trạng thái của publisher mà không liên quan đến các lớp cụ thể của họ.
 
 # Ứng dụng thực tế
-If you subscribe to a newspaper or magazine, you no longer need to go to the store to check if the next issue is available. Instead, the publisher sends new issues directly to your mailbox right after publication or even in advance.
+Nếu bạn đăng ký một tờ báo hoặc tạp chí, bạn không cần phải đến cửa hàng để kiểm tra xem số tiếp theo có sẵn hay không. Thay vào đó, nhà xuất bản sẽ gửi các số báo mới trực tiếp đến hộp thư của bạn ngay sau khi xuất bản hoặc thậm chí trước.
 
-The publisher maintains a list of subscribers and knows which magazines they’re interested in. Subscribers can leave the list at any time when they wish to stop the publisher sending new magazine issues to them.
+Nhà xuất bản duy trì danh sách những người đăng ký và biết họ quan tâm đến tạp chí nào. Người đăng ký có thể rời khỏi danh sách bất kỳ lúc nào khi họ muốn ngăn nhà xuất bản gửi các số tạp chí mới cho họ.
 
 # Khả năng áp dụng
-- Use the Observer pattern when changes to the state of one object may require changing other objects, and the actual set of objects is unknown beforehand or changes dynamically.
-  - You can often experience this problem when working with classes of the graphical user interface. For example, you created custom button classes, and you want to let the clients hook some custom code to your buttons so that it fires whenever a user presses a button.<br><br>
-  The Observer pattern lets any object that implements the subscriber interface subscribe for event notifications in publisher objects. You can add the subscription mechanism to your buttons, letting the clients hook up their custom code via custom subscriber classes.
+- Sử dụng Observer pattern khi các thay đổi đối với trạng thái của một đối tượng có thể yêu cầu thay đổi các đối tượng khác và tập đối tượng thực tế không được biết trước hoặc thay đổi động.
+  - Bạn thường có thể gặp sự cố này khi làm việc với các lớp của graphical user interface. Ví dụ: bạn đã tạo các lớp nút tùy chỉnh và bạn muốn cho phép khách hàng kết nối một số mã tùy chỉnh vào các nút của bạn để nó kích hoạt bất cứ khi nào người dùng nhấn vào một nút. <br> <br>
+  Observer pattern cho phép bất kỳ đối tượng nào triển khai subscriber interface đăng ký nhận thông báo sự kiện trong đối tượng publisher. Bạn có thể thêm cơ chế đăng ký vào các nút của mình, cho phép khách hàng kết nối mã tùy chỉnh của họ thông qua các lớp người đăng ký tùy chỉnh.
 
-- Use the pattern when some objects in your app must observe others, but only for a limited time or in specific cases.
-  - The subscription list is dynamic, so subscribers can join or leave the list whenever they need to.
+- Sử dụng mẫu khi một số đối tượng trong ứng dụng của bạn phải quan sát những đối tượng khác, nhưng chỉ trong thời gian giới hạn hoặc trong các trường hợp cụ thể.
+  - Danh sách đăng ký là động, vì vậy subscriber có thể tham gia hoặc rời khỏi danh sách bất cứ khi nào họ cần.
 
 # Cách triển khai
-1. Look over your business logic and try to break it down into two parts: the core functionality, independent from other code, will act as the publisher; the rest will turn into a set of subscriber classes.
+1. Xem qua logic kinh doanh của bạn và cố gắng chia nó thành hai phần: chức năng cốt lõi, độc lập với mã khác, sẽ hoạt động như publisher; phần còn lại sẽ biến thành tập các subscriber classe.
 
-2. Declare the subscriber interface. At a bare minimum, it should declare a single update method.
+2. Khai báo subscriber interface. Ở mức tối thiểu, nó phải khai báo một phương thức cập nhật duy nhất.
 
-3. Declare the publisher interface and describe a pair of methods for adding a subscriber object to and removing it from the list. Remember that publishers must work with subscribers only via the subscriber interface.
+3. Khai báo publisher interface và mô tả một cặp phương pháp để thêm đối tượng subscriber và xóa đối tượng đó khỏi danh sách. Hãy nhớ rằng publisher chỉ được làm việc với subscriber qua subscriber interface.
 
-4. Decide where to put the actual subscription list and the implementation of subscription methods. Usually, this code looks the same for all types of publishers, so the obvious place to put it is in an abstract class derived directly from the publisher interface. Concrete publishers extend that class, inheriting the subscription behavior.<br><br>
-However, if you’re applying the pattern to an existing class hierarchy, consider an approach based on composition: put the subscription logic into a separate object, and make all real publishers use it.
+4. Quyết định vị trí đặt danh sách đăng ký thực tế và việc triển khai các phương thức đăng ký. Thông thường, mã này trông giống nhau đối với tất cả các loại publisher, vì vậy vị trí rõ ràng để đặt nó là trong một lớp trừu tượng được dẫn xuất trực tiếp từ publisher interface. publisher cụ thể mở rộng lớp đó, kế thừa hành vi đăng ký. <br> <br>
+Tuy nhiên, nếu bạn đang áp dụng mẫu cho hệ thống phân cấp lớp hiện có, hãy xem xét cách tiếp cận dựa trên thành phần: đặt logic đăng ký vào một đối tượng riêng biệt và khiến tất cả các publisher thực sử dụng nó.
 
-5. Create concrete publisher classes. Each time something important happens inside a publisher, it must notify all its subscribers.
+5. Tạo các publisher classe cụ thể. Mỗi khi có điều gì quan trọng xảy ra bên trong publisher, publisher phải thông báo cho tất cả những subscriber của mình.
 
-6. Implement the update notification methods in concrete subscriber classes. Most subscribers would need some context data about the event. It can be passed as an argument of the notification method.<br><br>
-But there’s another option. Upon receiving a notification, the subscriber can fetch any data directly from the notification. In this case, the publisher must pass itself via the update method. The less flexible option is to link a publisher to the subscriber permanently via the constructor.
+6. Thực hiện các phương pháp thông báo cập nhật trong các subscriber classe cụ thể. Hầu hết subscriber sẽ cần một số dữ liệu ngữ cảnh về sự kiện. Nó có thể được chuyển như một đối số của phương thức thông báo. <br> <br>
+Nhưng có một lựa chọn khác. Khi nhận được thông báo, subscriber có thể lấy bất kỳ dữ liệu nào trực tiếp từ thông báo. Trong trường hợp này, publisher phải tự chuyển qua phương thức cập nhật. Tùy chọn kém linh hoạt hơn là liên kết publisher với subscriber vĩnh viễn thông qua phương thức khởi tạo.
 
-7. The client must create all necessary subscribers and register them with proper publishers.
+7. Client phải tạo tất cả subscriber cần thiết và đăng ký họ với các publisher thích hợp.
 
 # Ưu điểm và nhược điểm
 ## Ưu điểm
 - Open/Closed Principle. You can introduce new subscriber classes without having to change the publisher’s code (and vice versa if there’s a publisher interface).
 
-- You can establish relations between objects at runtime.
+- Nguyên tắc Mở / Đóng. Bạn có thể giới thiệu các subscriber classe mới mà không cần phải thay đổi mã của publisher (và ngược lại nếu có publisher interface).
+
+- Bạn có thể thiết lập quan hệ giữa các đối tượng trong thời gian chạy.
 
 ## Nhược điểm
-- Subscribers are notified in random order.
+- Subscribers được thông báo theo thứ tự ngẫu nhiên.
 
 # Mối quan hệ với các mẫu khác
-- Chain of Responsibility, Command, Mediator and Observer address various ways of connecting senders and receivers of requests:
-  - Chain of Responsibility passes a request sequentially along a dynamic chain of potential receivers until one of them handles it.
-  - Command establishes unidirectional connections between senders and receivers.
-  - Mediator eliminates direct connections between senders and receivers, forcing them to communicate indirectly via a mediator object.
-  - Observer lets receivers dynamically subscribe to and unsubscribe from receiving requests.
+- Chain of Responsibility, Command, Mediator và Observer giải quyết các cách khác nhau để kết nối người gửi và người nhận yêu cầu:
+  - Chain of Responsibility chuyển một yêu cầu tuần tự dọc theo một chuỗi động gồm những người nhận tiềm năng cho đến khi một trong số họ xử lý nó.
 
-- The difference between Mediator and Observer is often elusive. In most cases, you can implement either of these patterns; but sometimes you can apply both simultaneously. Let’s see how we can do that.<br><br>
-The primary goal of Mediator is to eliminate mutual dependencies among a set of system components. Instead, these components become dependent on a single mediator object. The goal of Observer is to establish dynamic one-way connections between objects, where some objects act as subordinates of others.<br><br>
-There’s a popular implementation of the Mediator pattern that relies on Observer. The mediator object plays the role of publisher, and the components act as subscribers which subscribe to and unsubscribe from the mediator’s events. When Mediator is implemented this way, it may look very similar to Observer.<br><br>
-When you’re confused, remember that you can implement the Mediator pattern in other ways. For example, you can permanently link all the components to the same mediator object. This implementation won’t resemble Observer but will still be an instance of the Mediator pattern.<br><br>
-Now imagine a program where all components have become publishers, allowing dynamic connections between each other. There won’t be a centralized mediator object, only a distributed set of observers.
+  - Command kết nối một chiều giữa người gửi và người nhận.
+
+  - Mediator loại bỏ các kết nối trực tiếp giữa người gửi và người nhận, buộc họ phải giao tiếp gián tiếp thông qua một đối tượng trung gian.
+
+  - Observer cho phép người nhận đăng ký động và hủy đăng ký nhận yêu cầu.
+
+- Sự khác biệt giữa Mediator và Observer thường khó nắm bắt. Trong hầu hết các trường hợp, bạn có thể triển khai một trong các mẫu này; nhưng đôi khi bạn có thể áp dụng đồng thời cả hai. Hãy xem cách chúng tôi có thể làm điều đó.<br><br>
+Mục tiêu chính của Mediator là loại bỏ sự phụ thuộc lẫn nhau giữa một tập hợp các thành phần hệ thống. Thay vào đó, các thành phần này trở nên phụ thuộc vào một đối tượng trung gian duy nhất. Mục tiêu của Observer là thiết lập các kết nối động một chiều giữa các đối tượng, nơi một số đối tượng hoạt động như cấp dưới của những đối tượng khác.<br><br>
+Có một cách triển khai phổ biến của Mediator pattern dựa vào Observer. Đối tượng mediator đóng vai trò là publisher và các thành phần đóng vai trò là subscriber đăng ký và hủy đăng ký các sự kiện của mediator. Khi Mediator được triển khai theo cách này, nó có thể trông rất giống với Observer.<br><br>
+Khi bạn bối rối, hãy nhớ rằng bạn có thể triển khai Mediator pattern theo những cách khác. Ví dụ: bạn có thể liên kết vĩnh viễn tất cả các thành phần với cùng một đối tượng mediator. Việc triển khai này sẽ không giống với Observer nhưng vẫn sẽ là một bản sao của mẫu Mediator.<br><br>
+Bây giờ hãy tưởng tượng một chương trình mà tất cả các thành phần đã trở thành publisher, cho phép các kết nối động giữa nhau. Sẽ không có đối tượng dàn xếp tập trung, chỉ có một nhóm quan sát viên phân tán.

@@ -1,5 +1,5 @@
 # Strategy
-Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+**Strategy** là một mẫu thiết kế hành vi cho phép bạn xác định một nhóm thuật toán, đặt mỗi thuật toán vào một lớp riêng biệt và làm cho các đối tượng của chúng có thể hoán đổi cho nhau.
 
 - Độ phức tạp của mẫu này là 2.
 - Mức độ phổ biến của mẫu này là 3.
@@ -21,87 +21,87 @@ Strategy is a behavioral design pattern that lets you define a family of algorit
 - `php main.php`
 
 # Vấn đề
-One day you decided to create a navigation app for casual travelers. The app was centered around a beautiful map which helped users quickly orient themselves in any city.
+Một ngày nọ, bạn quyết định tạo một ứng dụng điều hướng cho những khách du lịch bình thường. Ứng dụng tập trung vào một bản đồ đẹp giúp người dùng nhanh chóng định hướng cho mình ở bất kỳ thành phố nào.
 
-One of the most requested features for the app was automatic route planning. A user should be able to enter an address and see the fastest route to that destination displayed on the map.
+Một trong những tính năng được yêu cầu nhiều nhất cho ứng dụng là lập kế hoạch tuyến đường tự động. Người dùng có thể nhập địa chỉ và xem tuyến đường nhanh nhất đến điểm đến đó được hiển thị trên bản đồ.
 
-The first version of the app could only build the routes over roads. People who traveled by car were bursting with joy. But apparently, not everybody likes to drive on their vacation. So with the next update, you added an option to build walking routes. Right after that, you added another option to let people use public transport in their routes.
+Phiên bản đầu tiên của ứng dụng chỉ có thể xây dựng các tuyến đường. Những người đi ô tô vỡ òa trong niềm vui sướng. Nhưng dường như, không phải ai cũng thích lái xe trong kỳ nghỉ của họ. Vì vậy, với bản cập nhật tiếp theo, bạn đã thêm một tùy chọn để xây dựng các tuyến đường đi bộ. Ngay sau đó, bạn đã thêm một tùy chọn khác để mọi người sử dụng phương tiện công cộng trong tuyến đường của họ.
 
-However, that was only the beginning. Later you planned to add route building for cyclists. And even later, another option for building routes through all of a city’s tourist attractions.
+Tuy nhiên, đó chỉ là khởi đầu. Sau đó, bạn dự định thêm xây dựng tuyến đường cho người đi xe đạp. Và thậm chí sau đó, một lựa chọn khác để xây dựng các tuyến đường qua tất cả các điểm du lịch của thành phố.
 
-While from a business perspective the app was a success, the technical part caused you many headaches. Each time you added a new routing algorithm, the main class of the navigator doubled in size. At some point, the beast became too hard to maintain.
+Mặc dù ở góc độ kinh doanh, ứng dụng đã thành công, nhưng phần kỹ thuật lại khiến bạn đau đầu. Mỗi lần bạn thêm một thuật toán định tuyến mới, lớp chính của trình điều hướng sẽ tăng gấp đôi kích thước. Tại một số điểm, con thú trở nên quá khó để duy trì.
 
-Any change to one of the algorithms, whether it was a simple bug fix or a slight adjustment of the street score, affected the whole class, increasing the chance of creating an error in already-working code.
+Bất kỳ thay đổi nào đối với một trong các thuật toán, cho dù đó là một sửa lỗi đơn giản hay một sự điều chỉnh nhỏ về điểm số, đều ảnh hưởng đến cả lớp, làm tăng khả năng tạo ra lỗi trong mã đã hoạt động.
 
-In addition, teamwork became inefficient. Your teammates, who had been hired right after the successful release, complain that they spend too much time resolving merge conflicts. Implementing a new feature requires you to change the same huge class, conflicting with the code produced by other people.
+Ngoài ra, làm việc theo nhóm trở nên kém hiệu quả. Đồng đội của bạn, những người đã được thuê ngay sau khi phát hành thành công, phàn nàn rằng họ mất quá nhiều thời gian để giải quyết các xung đột hợp nhất. Việc triển khai một tính năng mới đòi hỏi bạn phải thay đổi cùng một lớp khổng lồ, xung đột với mã do người khác tạo ra.
 
 # Giải pháp
-The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
+Strategy pattern gợi ý rằng bạn nên chọn một lớp thực hiện điều gì đó cụ thể theo nhiều cách khác nhau và trích xuất tất cả các thuật toán này thành các lớp riêng biệt được gọi là chiến lược.
 
-The original class, called context, must have a field for storing a reference to one of the strategies. The context delegates the work to a linked strategy object instead of executing it on its own.
+Lớp gốc, được gọi là ngữ cảnh, phải có một trường để lưu trữ tham chiếu đến một trong các chiến lược. Bối cảnh ủy quyền công việc cho một đối tượng chiến lược được liên kết thay vì tự thực thi nó.
 
-The context isn’t responsible for selecting an appropriate algorithm for the job. Instead, the client passes the desired strategy to the context. In fact, the context doesn’t know much about strategies. It works with all strategies through the same generic interface, which only exposes a single method for triggering the algorithm encapsulated within the selected strategy.
+Bối cảnh không chịu trách nhiệm chọn một thuật toán thích hợp cho công việc. Thay vào đó, khách hàng chuyển chiến lược mong muốn cho ngữ cảnh. Trên thực tế, bối cảnh không biết nhiều về chiến lược. Nó hoạt động với tất cả các chiến lược thông qua cùng một giao diện chung, chỉ hiển thị một phương pháp duy nhất để kích hoạt thuật toán được gói gọn trong chiến lược đã chọn.
 
-This way the context becomes independent of concrete strategies, so you can add new algorithms or modify existing ones without changing the code of the context or other strategies.
+Bằng cách này, ngữ cảnh trở nên độc lập với các chiến lược cụ thể, vì vậy bạn có thể thêm các thuật toán mới hoặc sửa đổi các thuật toán hiện có mà không cần thay đổi mã của ngữ cảnh hoặc các chiến lược khác.
 
-In our navigation app, each routing algorithm can be extracted to its own class with a single `buildRoute` method. The method accepts an origin and destination and returns a collection of the route’s checkpoints.
+Trong ứng dụng điều hướng của chúng tôi, mỗi thuật toán định tuyến có thể được trích xuất vào lớp riêng của nó bằng một phương thức `buildRoute` duy nhất. Phương thức chấp nhận một điểm xuất phát và điểm đến và trả về một tập hợp các điểm kiểm tra của tuyến đường.
 
-Even though given the same arguments, each routing class might build a different route, the main navigator class doesn’t really care which algorithm is selected since its primary job is to render a set of checkpoints on the map. The class has a method for switching the active routing strategy, so its clients, such as the buttons in the user interface, can replace the currently selected routing behavior with another one.
+Mặc dù đưa ra các đối số giống nhau, mỗi lớp định tuyến có thể xây dựng một tuyến đường khác nhau, lớp điều hướng chính không thực sự quan tâm đến thuật toán nào được chọn vì công việc chính của nó là hiển thị một tập hợp các điểm kiểm tra trên bản đồ. Lớp có một phương thức để chuyển đổi chiến lược định tuyến hoạt động, vì vậy các máy khách của nó, chẳng hạn như các nút trong giao diện người dùng, có thể thay thế hành vi định tuyến hiện được chọn bằng một hành vi khác.
 
 # Ứng dụng thực tế
-Imagine that you have to get to the airport. You can catch a bus, order a cab, or get on your bicycle. These are your transportation strategies. You can pick one of the strategies depending on factors such as budget or time constraints.
+Hãy tưởng tượng rằng bạn phải đến sân bay. Bạn có thể bắt xe buýt, gọi taxi hoặc đi xe đạp. Đây là những chiến lược vận chuyển của bạn. Bạn có thể chọn một trong các chiến lược tùy thuộc vào các yếu tố như hạn chế về ngân sách hoặc thời gian.
 
 # Khả năng áp dụng
-- Use the Strategy pattern when you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime.
-  - The Strategy pattern lets you indirectly alter the object’s behavior at runtime by associating it with different sub-objects which can perform specific sub-tasks in different ways.
+- Sử dụng Strategy pattern khi bạn muốn sử dụng các biến thể khác nhau của thuật toán trong một đối tượng và có thể chuyển từ thuật toán này sang thuật toán khác trong thời gian chạy.
+  - Strategy pattern cho phép bạn gián tiếp thay đổi hành vi của đối tượng trong thời gian chạy bằng cách liên kết nó với các đối tượng phụ khác nhau có thể thực hiện các nhiệm vụ phụ cụ thể theo những cách khác nhau.
 
-- Use the Strategy when you have a lot of similar classes that only differ in the way they execute some behavior.
-  - The Strategy pattern lets you extract the varying behavior into a separate class hierarchy and combine the original classes into one, thereby reducing duplicate code.
+- Sử dụng Strategy pattern khi bạn có nhiều lớp giống nhau chỉ khác nhau về cách chúng thực hiện một số hành vi.
+  - Strategy pattern cho phép bạn trích xuất các hành vi khác nhau thành một hệ thống phân cấp lớp riêng biệt và kết hợp các lớp ban đầu thành một, do đó giảm mã trùng lặp.
 
-- Use the pattern to isolate the business logic of a class from the implementation details of algorithms that may not be as important in the context of that logic.
-  - The Strategy pattern lets you isolate the code, internal data, and dependencies of various algorithms from the rest of the code. Various clients get a simple interface to execute the algorithms and switch them at runtime.
+- Sử dụng mẫu để cô lập logic nghiệp vụ của một lớp khỏi các chi tiết triển khai của các thuật toán có thể không quan trọng trong ngữ cảnh của logic đó.
+  - Strategy pattern cho phép bạn tách biệt mã, dữ liệu nội bộ và phụ thuộc của các thuật toán khác nhau khỏi phần còn lại của mã. Các máy khách khác nhau có được một giao diện đơn giản để thực thi các thuật toán và chuyển đổi chúng trong thời gian chạy.
 
-- Use the pattern when your class has a massive conditional operator that switches between different variants of the same algorithm.
-  - The Strategy pattern lets you do away with such a conditional by extracting all algorithms into separate classes, all of which implement the same interface. The original object delegates execution to one of these objects, instead of implementing all variants of the algorithm.
+- Sử dụng mẫu khi lớp của bạn có một toán tử điều kiện lớn chuyển đổi giữa các biến thể khác nhau của cùng một thuật toán.
+  - Strategy pattern cho phép bạn loại bỏ điều kiện như vậy bằng cách trích xuất tất cả các thuật toán thành các lớp riêng biệt, tất cả đều triển khai cùng một giao diện. Đối tượng ban đầu ủy quyền thực thi cho một trong những đối tượng này, thay vì triển khai tất cả các biến thể của thuật toán.
 
 # Cách triển khai
-1. In the context class, identify an algorithm that’s prone to frequent changes. It may also be a massive conditional that selects and executes a variant of the same algorithm at runtime.
+1. Trong lớp ngữ cảnh, xác định một thuật toán dễ bị thay đổi thường xuyên. Nó cũng có thể là một điều kiện lớn chọn và thực thi một biến thể của cùng một thuật toán trong thời gian chạy.
 
-2. Declare the strategy interface common to all variants of the algorithm.
+2. Khai báo strategy interface chung cho tất cả các biến thể của thuật toán.
 
-3. One by one, extract all algorithms into their own classes. They should all implement the strategy interface.
+3. Từng người một, trích xuất tất cả các thuật toán vào các lớp riêng của chúng. Tất cả họ nên triển khai strategy interface.
 
-4. In the context class, add a field for storing a reference to a strategy object. Provide a setter for replacing values of that field. The context should work with the strategy object only via the strategy interface. The context may define an interface which lets the strategy access its data.
+4. Trong lớp ngữ cảnh, hãy thêm một trường để lưu trữ một tham chiếu đến một strategy object. Cung cấp một bộ định vị để thay thế các giá trị của trường đó. Bối cảnh chỉ nên hoạt động với strategy object thông qua strategy interface. Bối cảnh có thể xác định một giao diện cho phép chiến lược truy cập vào dữ liệu của nó.
 
-5. Clients of the context must associate it with a suitable strategy that matches the way they expect the context to perform its primary job.
+5. Khách hàng của bối cảnh phải liên kết nó với một chiến lược phù hợp phù hợp với cách họ mong đợi bối cảnh thực hiện công việc chính của nó.
 
 # Ưu điểm và nhược điểm
 ## Ưu điểm
-- You can swap algorithms used inside an object at runtime.
+- Bạn có thể hoán đổi các thuật toán được sử dụng bên trong một đối tượng trong thời gian chạy.
 
-- You can isolate the implementation details of an algorithm from the code that uses it.
+- Bạn có thể tách biệt chi tiết triển khai của một thuật toán khỏi mã sử dụng nó.
 
-- You can replace inheritance with composition.
+- Bạn có thể thay thế kế thừa bằng thành phần.
 
-- Open/Closed Principle. You can introduce new strategies without having to change the context.
+- Nguyên tắc Mở / Đóng. Bạn có thể giới thiệu các chiến lược mới mà không cần phải thay đổi bối cảnh.
 
 ## Nhược điểm
-- If you only have a couple of algorithms and they rarely change, there’s no real reason to overcomplicate the program with new classes and interfaces that come along with the pattern.
+- Nếu bạn chỉ có một vài thuật toán và chúng hiếm khi thay đổi, thì không có lý do thực sự nào để làm phức tạp chương trình quá mức với các lớp và giao diện mới đi kèm với mẫu.
 
-- Clients must be aware of the differences between strategies to be able to select a proper one.
+- Khách hàng phải nhận thức được sự khác biệt giữa các chiến lược để có thể chọn một chiến lược phù hợp.
 
-- A lot of modern programming languages have functional type support that lets you implement different versions of an algorithm inside a set of anonymous functions. Then you could use these functions exactly as you’d have used the strategy objects, but without bloating your code with extra classes and interfaces.
+- Rất nhiều ngôn ngữ lập trình hiện đại có hỗ trợ kiểu hàm cho phép bạn triển khai các phiên bản khác nhau của thuật toán bên trong một tập hợp các hàm ẩn danh. Sau đó, bạn có thể sử dụng các chức năng này chính xác như bạn đã sử dụng các strategy object, nhưng không làm tăng mã của bạn với các lớp và giao diện bổ sung.
 
 # Mối quan hệ với các mẫu khác
-- Bridge, State, Strategy (and to some degree Adapter) have very similar structures. Indeed, all of these patterns are based on composition, which is delegating work to other objects. However, they all solve different problems. A pattern isn’t just a recipe for structuring your code in a specific way. It can also communicate to other developers the problem the pattern solves.
+- Bridge, State, Strategy (và ở một mức độ nào đó là Adapter) có cấu trúc rất giống nhau. Thật vậy, tất cả các mẫu này đều dựa trên bố cục, tức là ủy thác công việc cho các đối tượng khác. Tuy nhiên, chúng đều giải quyết các vấn đề khác nhau. Mẫu không chỉ là một công thức để cấu trúc mã của bạn theo một cách cụ thể. Nó cũng có thể giao tiếp với các nhà phát triển khác về vấn đề mà mẫu giải quyết.
 
-- Command and Strategy may look similar because you can use both to parameterize an object with some action. However, they have very different intents.
-  - You can use Command to convert any operation into an object. The operation’s parameters become fields of that object. The conversion lets you defer execution of the operation, queue it, store the history of commands, send commands to remote services, etc.
+- Command và Strategy có thể trông giống nhau vì bạn có thể sử dụng cả hai để tham số hóa một đối tượng bằng một số hành động. Tuy nhiên, họ có ý định rất khác nhau.
+  - Bạn có thể sử dụng Command để chuyển đổi bất kỳ thao tác nào thành một đối tượng. Các tham số của hoạt động trở thành các trường của đối tượng đó. Việc chuyển đổi cho phép bạn trì hoãn việc thực hiện thao tác, xếp hàng đợi, lưu trữ lịch sử các lệnh, gửi lệnh đến các dịch vụ từ xa, v.v.
 
-  - On the other hand, Strategy usually describes different ways of doing the same thing, letting you swap these algorithms within a single context class.
+  - Mặt khác, Strategy thường mô tả các cách khác nhau để thực hiện cùng một việc, cho phép bạn hoán đổi các thuật toán này trong một lớp ngữ cảnh duy nhất.
 
-- Decorator lets you change the skin of an object, while Strategy lets you change the guts.
+- Decorator cho phép bạn thay đổi giao diện của một đối tượng, trong khi Strategy cho phép bạn thay đổi ruột.
 
-- Template Method is based on inheritance: it lets you alter parts of an algorithm by extending those parts in subclasses. Strategy is based on composition: you can alter parts of the object’s behavior by supplying it with different strategies that correspond to that behavior. Template Method works at the class level, so it’s static. Strategy works on the object level, letting you switch behaviors at runtime.
+- Template Method dựa trên sự kế thừa: nó cho phép bạn thay đổi các phần của một thuật toán bằng cách mở rộng các phần đó trong các lớp con. Strategy dựa trên cấu tạo: bạn có thể thay đổi các phần trong hành vi của đối tượng bằng cách cung cấp cho đối tượng các chiến lược khác nhau tương ứng với hành vi đó. Template Method hoạt động ở cấp lớp, vì vậy nó tĩnh. Strategy hoạt động ở cấp độ đối tượng, cho phép bạn chuyển đổi hành vi trong thời gian chạy.
 
-- State can be considered as an extension of Strategy. Both patterns are based on composition: they change the behavior of the context by delegating some work to helper objects. Strategy makes these objects completely independent and unaware of each other. However, State doesn’t restrict dependencies between concrete states, letting them alter the state of the context at will.
+- State có thể được coi là một phần mở rộng của Strategy. Cả hai mẫu đều dựa trên thành phần: chúng thay đổi hành vi của ngữ cảnh bằng cách ủy quyền một số công việc cho các đối tượng trợ giúp. Strategy làm cho các đối tượng này hoàn toàn độc lập và không biết về nhau. Tuy nhiên, State không hạn chế sự phụ thuộc giữa các trạng thái cụ thể, cho phép chúng thay đổi trạng thái của ngữ cảnh theo ý muốn.
