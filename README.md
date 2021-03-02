@@ -35,11 +35,11 @@
 # Design pattern là gì?
 **Design patterns** là giải pháp điển hình cho các vấn đề thường xảy ra trong thiết kế phần mềm. Chúng giống như các bản thiết kế được tạo sẵn mà bạn có thể tùy chỉnh để giải quyết vấn đề trùng lặp mã trong phần mềm của mình.
 
-Bạn không thể chỉ tìm một mẫu và sao chép nó vào chương trình của mình, giống như cách bạn đang làm với các chức năng hoặc thư viện có sẵn. Mẫu không phải là một đoạn mã cụ thể, mà là một khái niệm chung để giải quyết một vấn đề cụ thể. Bạn có thể theo dõi chi tiết, nghiên cứu, học hỏi các mẫu và triển khai giải pháp phù hợp với thực tế của chương trình của bạn.
+Bạn không thể chỉ tìm một pattern và sao chép nó vào chương trình của mình, giống như cách bạn đang làm với các chức năng hoặc thư viện có sẵn. Pattern không phải là một đoạn mã cụ thể, mà là một khái niệm chung để giải quyết một vấn đề cụ thể. Bạn có thể theo dõi chi tiết, nghiên cứu, học hỏi các pattern và triển khai giải pháp phù hợp với thực tế trong chương trình của bạn.
 
-Các mẫu thường bị nhầm lẫn với các thuật toán, vì cả hai khái niệm đều mô tả các giải pháp điển hình cho một số vấn đề đã biết. Trong khi một thuật toán luôn xác định một tập hợp các hành động rõ ràng có thể đạt được một số mục tiêu, thì một mẫu là một mô tả cấp cao hơn về một giải pháp. Mã của cùng một mẫu được áp dụng cho hai chương trình khác nhau có thể khác nhau.
+Các pattern thường bị nhầm lẫn với các thuật toán, vì cả hai khái niệm đều mô tả các giải pháp điển hình cho một số vấn đề đã biết. Trong khi một thuật toán luôn xác định một tập hợp các hành động rõ ràng có thể đạt được một số mục tiêu, thì một pattern là một mô tả cấp cao hơn về một giải pháp. Code của cùng một mẫu được áp dụng cho hai chương trình khác nhau có thể khác nhau.
 
-Một thuật toán giống như là một công thức nấu ăn: cả hai đều có các bước rõ ràng để đạt được mục tiêu. Mặt khác, một mẫu thì giống như một bản thiết kế: bạn có thể xem kết quả và các tính năng của nó, nhưng thứ tự thực hiện chính xác là tùy thuộc vào bạn.
+Một thuật toán giống như là một công thức nấu ăn: cả hai đều có các bước rõ ràng để đạt được mục tiêu. Mặt khác, một pattern thì giống như một bản thiết kế: bạn có thể xem kết quả và các tính năng của nó, nhưng thứ tự thực hiện chính xác là tùy thuộc vào bạn.
 
 # Lịch sử của các mẫu
 Ai là người phát minh ra các mẫu? Đó là một câu hỏi hay, nhưng không chính xác lắm. Các mẫu thiết kế không phải là những khái niệm phức tạp, khó hiểu — hoàn toàn ngược lại. Các mẫu là giải pháp điển hình cho các vấn đề thường gặp trong thiết kế hướng đối tượng. Khi một giải pháp được lặp đi lặp lại trong các dự án khác nhau, cuối cùng ai đó sẽ đặt tên cho nó và mô tả chi tiết giải pháp. Về cơ bản, đó là cách một mẫu được phát hiện.
