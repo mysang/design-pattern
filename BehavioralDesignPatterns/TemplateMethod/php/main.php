@@ -1,5 +1,13 @@
 <?php
 /**
+ * Template Method là một Behavioral design pattern xác định khung
+ * của một thuật toán trong lớp cha nhưng cho phép các lớp con ghi đè
+ * các bước cụ thể của thuật toán mà không thay đổi cấu trúc của nó.
+ * Độ phức tạp của pattern này là 1.
+ * Mức độ phổ biến của pattern này là 2.
+ */
+
+/**
  * Abstract Class định nghĩa phương thức khuôn mẫu và khai báo tất cả các bước của nó.
  */
 abstract class SocialNetwork
